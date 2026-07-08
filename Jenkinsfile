@@ -9,22 +9,14 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Docker Test') {
             steps {
-                echo 'Building application...'
+                sh 'whoami'
+                sh 'id'
+                sh 'docker --version'
+                sh 'docker ps'
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-            }
-        }
     }
 }

@@ -17,5 +17,11 @@ pipeline {
             }
         }
 
+        stage('Stop Old Container') {
+            steps {
+                sh 'docker stop devops-container || true'
+            }
+        }
+
     }
 }

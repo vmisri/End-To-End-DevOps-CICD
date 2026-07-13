@@ -5,16 +5,15 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
+                checkout scm
             }
         }
 
-        stage('Docker Test') {
+        stage('Build Docker Image') {
             steps {
-                sh 'whoami'
-                sh 'id'
-                sh 'docker --version'
-                sh 'docker ps'
+                dir('app') {
+                    sh 'docker build -t devops-web:v1 .'
+                }
             }
         }
 

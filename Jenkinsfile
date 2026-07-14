@@ -29,5 +29,11 @@ pipeline {
             }
         }
 
+        stage('Run New Container') {
+            steps {
+                sh 'docker run -d --name devops-container -p 80:80 devops-web:v1'
+            }
+        }
+
     }
 }

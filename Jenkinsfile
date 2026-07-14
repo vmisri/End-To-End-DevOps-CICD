@@ -23,5 +23,11 @@ pipeline {
             }
         }
 
+        stage('Remove Old Container') {
+            steps {
+                sh 'docker rm devops-container || true'
+            }
+        }
+
     }
 }
